@@ -1,6 +1,7 @@
 var zip = require('./zip');
 
 module.exports = function(gj, options) {
-    var content = zip(gj, options);
+  zip(gj, options).then(function(content) {
     location.href = 'data:application/zip;base64,' + content;
+  });
 };
